@@ -1,0 +1,46 @@
+:host {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+:host h2 {
+  text-align: center;
+  margin: 0 0 25px 0;
+}
+:host details {
+  overflow: hidden;
+  margin-top: 10px;
+  background-color: var(--black-010);
+  border-radius: 7px;
+}
+:host details article, :host details summary {
+  align-items: center;
+  padding: 10px 20px;
+  transition: 500ms;
+}
+:host details summary {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  background-color: var(--primary);
+}
+:host details summary p {
+  font-size: 14px;
+  color: var(--black-010);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+:host details[open] summary {
+  border-radius: 7px 7px 0 0;
+}
+:host details[open] summary::after {
+  content: url("../../../../../assets/icons/chevron-up.svg");
+}
+:host details:not([open]) summary::after {
+  content: url("../../../../../assets/icons/chevron-down.svg");
+}/*# sourceMappingURL=experiences.component.css.map */
