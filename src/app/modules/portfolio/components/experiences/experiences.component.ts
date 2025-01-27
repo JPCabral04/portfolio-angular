@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { IExperiences } from '../../interface/IExperiencies.interface';
 
 @Component({
@@ -8,6 +8,7 @@ import { IExperiences } from '../../interface/IExperiencies.interface';
   styleUrl: './experiences.component.scss'
 })
 export class ExperiencesComponent {
+
   public arrayExperiences = signal<IExperiences[]>([
     {
       summary: {
@@ -52,4 +53,16 @@ export class ExperiencesComponent {
       text: '<p>No ew21, marco inicial da minha trajetória profissional, mergulhei em um aprendizado abrangente que englobava não apenas front-end, design e backend, mas também incluía domínio em tecnologias como Flash e muito mais.</p> <p>Essa empresa se revelou uma verdadeira escola inicial, onde absorvi conhecimentos variados. No front-end, desenvolvi habilidades com Html5, Css3, Javascript, Jquery e Wordpress, enquanto no back-end, explorei PHP, Cake (PHP) e integrações com bancos de dados MySql.</p>',
     },
   ]);
+
+  public searchQuery = signal<string>('');
+
+  public filteredExperiences = computed(() =>
+    this.arrayExperiences().filter((item) =>
+      item.summary.strong.toLowerCase().includes(this.searchQuery().toLowerCase())
+    )
+  );
+
+  public searchExperience(value: string) {
+    this.searchQuery.set(value);
+  }
 }

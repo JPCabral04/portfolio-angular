@@ -20,6 +20,9 @@ import { DialogProjectsComponent } from '../dialog/dialog-projects/dialog-projec
   styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent {
+
+  
+
   #dialog = inject(MatDialog);
 
   public arrayProjects = signal<IProjects[]>([

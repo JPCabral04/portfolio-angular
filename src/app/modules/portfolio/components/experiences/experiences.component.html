@@ -1,6 +1,9 @@
 <div class="container">
     <h2>Últimas Experiências</h2>
-    @for (item of arrayExperiences(); track item) {
+
+    <input #inputSearch type="text" placeholder="Busque a experiência..." (input)="searchExperience(inputSearch.value)">
+    
+    @for (item of filteredExperiences(); track item) {
         <details>
             <summary>
                 <p>
